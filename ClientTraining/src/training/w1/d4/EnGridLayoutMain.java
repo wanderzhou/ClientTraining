@@ -32,25 +32,25 @@ public class EnGridLayoutMain {
 		//id
 		Label labId = new Label(shell, SWT.RIGHT);
 		labId.setText("Id:");
-		labId.setLayoutData(new GridData(SWT.FILL, SWT.RIGHT, true, false));
+		labId.setLayoutData(new GridData(SWT.FILL, SWT.END, true, false));
 		
 		//text
 		Text txtId = new Text(shell, SWT.NONE);
-		txtId.setLayoutData(new GridData(SWT.FILL, SWT.LEFT, true, false));
+		txtId.setLayoutData(new GridData(SWT.FILL, SWT.NONE, true, false));
 		
 		//name
 		Label labName = new Label(shell, SWT.RIGHT);
 		labName.setText("Name:");
-		labName.setLayoutData(new GridData(SWT.FILL, SWT.RIGHT, true, false));
+		labName.setLayoutData(new GridData(SWT.FILL, SWT.NONE, true, false));
 		
 		//text
 		Text txtName = new Text(shell, SWT.NONE);
-		txtName.setLayoutData(new GridData(SWT.FILL, SWT.LEFT, true, false));
+		txtName.setLayoutData(new GridData(SWT.FILL, SWT.NONE, true, false));
 		
 		//password
 		Label labPassword = new Label(shell, SWT.RIGHT);
 		labPassword.setText("Password:");
-		GridData gdPassword = new GridData(SWT.FILL, SWT.RIGHT, true, false); 
+		GridData gdPassword = new GridData(SWT.FILL, SWT.NONE, true, false); 
 		gdPassword.horizontalAlignment = SWT.RIGHT;
 		labPassword.setLayoutData(gdPassword);
 		
@@ -106,7 +106,7 @@ public class EnGridLayoutMain {
 		butRadio3.setText("O3");
 		GridData gdR3 = new GridData(SWT.FILL, SWT.FILL, true, false);
 		gdR3.horizontalAlignment = SWT.RIGHT;		
-		butRadio3.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+		butRadio3.setLayoutData(gdR3);
 		
 		Text txtLine2 = new Text(shell, SWT.LEFT);
 		GridData gdLine2 = new GridData(SWT.FILL, SWT.FILL, true, false);

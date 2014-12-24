@@ -41,7 +41,7 @@ public class TreeSampleMain {
 		treeRight.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		
 		//bottom tree
-		Tree treeBottom = new Tree(shell, SWT.MULTI|SWT.BORDER);
+		Tree treeBottom = new Tree(shell, SWT.MULTI|SWT.BORDER|SWT.FULL_SELECTION);
 		treeBottom.setHeaderVisible(true);
 				
 		initBottomTree(treeBottom);

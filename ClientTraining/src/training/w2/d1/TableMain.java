@@ -53,6 +53,7 @@ public class TableMain {
 			tabTop.getColumn(i).pack();
 		}
 		
+		//create second table
 		Table tabBottom = new Table(shell, SWT.MULTI|SWT.FULL_SELECTION|SWT.BORDER|SWT.CHECK);
 		tabBottom.setLinesVisible(true);
 		tabBottom.setHeaderVisible(true);
