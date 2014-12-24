@@ -81,7 +81,7 @@ public class RowLayoutMain {
 			}
 		}
 		
-		shell.dispose();
+		display.dispose();
 		
 
 	}

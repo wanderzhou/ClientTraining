@@ -83,7 +83,7 @@ public class ButtonMain {
 			}
 		}
 		
-		shell.dispose();
+		display.dispose();
 
 	}
 

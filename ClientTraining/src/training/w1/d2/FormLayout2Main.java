@@ -78,7 +78,7 @@ public class FormLayout2Main {
 			}
 		}
 		
-		shell.dispose();
+		display.dispose();
 
 		
 	}

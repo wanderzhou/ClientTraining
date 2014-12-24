@@ -23,13 +23,13 @@ public class ListMain {
 		Label labSingle = new Label(shell, SWT.LEFT);
 		labSingle.setText("Single Selection");
 
-		GridData gdSingle = new GridData(250, 30);
+		GridData gdSingle = new GridData(SWT.FILL, SWT.FILL, true, false);
 		labSingle.setLayoutData(gdSingle);
 
 		Label labMultiple = new Label(shell, SWT.LEFT);
 		labMultiple.setText("Multiple Selection");
 
-		GridData gdMultiple = new GridData(250, 30);
+		GridData gdMultiple =  new GridData(SWT.FILL, SWT.FILL, true, false);
 		labMultiple.setLayoutData(gdMultiple);
 
 		final List lstSingle = new List(shell, SWT.SINGLE);
@@ -39,7 +39,7 @@ public class ListMain {
 			lstSingle.add(String.format("Item %02d", i));
 		}
 
-		GridData gdLstSingle = new GridData(250, 300);
+		GridData gdLstSingle =  new GridData(SWT.FILL, SWT.FILL, true, false);
 		lstSingle.setLayoutData(gdLstSingle);
 
 		final List lstMultiple = new List(shell, SWT.MULTI);
@@ -48,21 +48,21 @@ public class ListMain {
 			lstMultiple.add(String.format("Item %02d", i));
 		}
 
-		GridData gdLstMultiple = new GridData(250, 300);
+		GridData gdLstMultiple =  new GridData(SWT.FILL, SWT.FILL, true, false);
 		lstMultiple.setLayoutData(gdLstMultiple);
 
 		GridLayout layout = new GridLayout(2, true);
-		layout.horizontalSpacing = 10;
+		//layout.horizontalSpacing = 10;
 
-		layout.marginLeft = 40;
-		layout.marginTop = 50;
+		//layout.marginLeft = 40;
+		//layout.marginTop = 50;
 		shell.setLayout(layout);
 
 		lstSingle.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 
-				// super.widgetSelected(e);
+				//
 				System.out.println(lstSingle.getSelection()[0]);
 			}
 		});
@@ -84,7 +84,7 @@ public class ListMain {
 				display.sleep();
 			}
 		}
-		shell.dispose();
+		display.dispose();
 	}
 
 }

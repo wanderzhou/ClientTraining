@@ -235,7 +235,7 @@ public class GridLayout2Main {
 				display.sleep();
 			}
 		}
-		shell.dispose();
+		display.dispose();
 
 	}
 

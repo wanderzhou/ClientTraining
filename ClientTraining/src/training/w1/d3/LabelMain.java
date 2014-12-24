@@ -84,7 +84,7 @@ public class LabelMain {
 			}
 		}
 		
-		shell.dispose();
+		display.dispose();
 
 	}
 

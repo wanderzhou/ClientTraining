@@ -62,7 +62,7 @@ public class FillLayoutMain {
 			}
 		}
 		
-		shell.dispose();
+		display.dispose();
 				
 	}
 

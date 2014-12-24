@@ -63,7 +63,7 @@ public class TextMain {
 				display.sleep();
 			}
 		}
-		shell.dispose();
+		display.dispose();
 		
 
 	}
