@@ -25,7 +25,7 @@ public class CustomTableLabelProvider implements ITableLabelProvider, IColorProv
 	private final static String GROUP = "group";
 		
 	/**
-	 * use SWT IMAGE
+	 * v1 : use SWT IMAGE, must be disposed explicitly
 	 */
 	/*//icon for male
 	private final static Image imgMale;
@@ -41,7 +41,7 @@ public class CustomTableLabelProvider implements ITableLabelProvider, IColorProv
 		imgGroup =  new Image(null, CustomTableLabelProvider.class.getClassLoader().getResourceAsStream("Group.png"));
 	}*/
 
-	//change to ImageDescriptor and ImageRegistry
+	//v2 : change to ImageDescriptor and ImageRegistry, do not require to dispose explicitly
 	ImageRegistry imageRegistry = new ImageRegistry();
 	
 	@Override
@@ -51,7 +51,7 @@ public class CustomTableLabelProvider implements ITableLabelProvider, IColorProv
 	}
 
 	/**
-	 * dispose images explicitly
+	 * dispose images explicitly if create b SWT IMAGE
 	 */
 	@Override
 	public void dispose() {
