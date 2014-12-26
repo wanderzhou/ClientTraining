@@ -1,5 +1,7 @@
 package training.w2.d4;
 
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.IColorDecorator;
 import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -16,7 +18,16 @@ import org.eclipse.swt.graphics.Image;
  */
 public class CustomTableLabelProvider implements ITableLabelProvider, IColorProvider, IColorDecorator {
 	
-	//icon for male
+	private final static String MALE = "male";
+	
+	private final static String FEMALE = "female";
+	
+	private final static String GROUP = "group";
+		
+	/**
+	 * use SWT IMAGE
+	 */
+	/*//icon for male
 	private final static Image imgMale;
 	//icon for female
 	private final static Image imgFemale;
@@ -28,8 +39,11 @@ public class CustomTableLabelProvider implements ITableLabelProvider, IColorProv
 		imgMale = new Image(null, CustomTableLabelProvider.class.getClassLoader().getResourceAsStream("Male.png"));
 		imgFemale = new Image(null, CustomTableLabelProvider.class.getClassLoader().getResourceAsStream("Female.png"));
 		imgGroup =  new Image(null, CustomTableLabelProvider.class.getClassLoader().getResourceAsStream("Group.png"));
-	}
+	}*/
 
+	//change to ImageDescriptor and ImageRegistry
+	ImageRegistry imageRegistry = new ImageRegistry();
+	
 	@Override
 	public void addListener(ILabelProviderListener listener) {
 		// TODO Auto-generated method stub
@@ -41,9 +55,29 @@ public class CustomTableLabelProvider implements ITableLabelProvider, IColorProv
 	 */
 	@Override
 	public void dispose() {
-		imgMale.dispose();
+		/*imgMale.dispose();
 		imgFemale.dispose();
-		imgGroup.dispose();
+		imgGroup.dispose();*/
+	}
+	
+	private Image getImage(String imageType) {
+		Image image = imageRegistry.get(imageType);
+		if(image == null) {
+			ImageDescriptor imageDescriptor = null;
+			if(MALE.equalsIgnoreCase(imageType)) {				
+				imageDescriptor = ImageDescriptor.createFromURL(getClass().getClassLoader().getResource("Male.png"));
+			} else if(FEMALE.equalsIgnoreCase(imageType)) {
+				imageDescriptor = ImageDescriptor.createFromURL(getClass().getClassLoader().getResource("Female.png"));
+			} else if(GROUP.equalsIgnoreCase(imageType)) {
+				imageDescriptor = ImageDescriptor.createFromURL(getClass().getClassLoader().getResource("Group.png"));
+			} 
+			
+			if(imageDescriptor != null) {
+				imageRegistry.put(imageType, imageDescriptor);
+				image = imageDescriptor.createImage();
+			}
+		}
+		return image;
 	}
 
 	@Override
@@ -69,15 +103,12 @@ public class CustomTableLabelProvider implements ITableLabelProvider, IColorProv
 			if(element instanceof Student) {
 				Student student = (Student)element;
 				if(student.isMale()) {
-					//return new Image(null, getClass().getClassLoader().getResourceAsStream("Male.png"));
-					return imgMale;
+					return getImage(MALE);
 				} else {
-					//return new Image(null, getClass().getClassLoader().getResourceAsStream("Female.png"));
-					return imgFemale;
+					return getImage(FEMALE);
 				}
 			} else if(element instanceof Group)  {
-				//return new Image(null, getClass().getClassLoader().getResourceAsStream("Group.png"));
-				return imgGroup;
+				return getImage(GROUP);
 			}
 		} 
 		return null;		
