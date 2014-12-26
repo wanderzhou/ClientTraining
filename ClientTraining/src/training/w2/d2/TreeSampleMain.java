@@ -204,7 +204,6 @@ public class TreeSampleMain {
 		tree.showItem(item);
 		for(int i = 0; i < item.getItemCount(); i++) {
 			displayItem(tree, item.getItem(i));
-		}
-		
+		}		
 	}
 }

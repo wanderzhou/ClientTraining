@@ -17,6 +17,7 @@ public class ListMain {
 	public static void main(String[] args) {
 		Display display = new Display();
 		Shell shell = new Shell(display);
+		
 		shell.setText("Widgets Sample - List");
 		Util.centerWindow(600, 400, shell);
 
@@ -52,10 +53,7 @@ public class ListMain {
 		lstMultiple.setLayoutData(gdLstMultiple);
 
 		GridLayout layout = new GridLayout(2, true);
-		//layout.horizontalSpacing = 10;
 
-		//layout.marginLeft = 40;
-		//layout.marginTop = 50;
 		shell.setLayout(layout);
 
 		lstSingle.addSelectionListener(new SelectionAdapter() {
