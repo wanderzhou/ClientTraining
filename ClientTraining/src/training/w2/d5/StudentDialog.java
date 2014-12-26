@@ -1,9 +1,7 @@
 package training.w2.d5;
 
 import org.eclipse.jface.dialogs.Dialog;
-import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -16,7 +14,7 @@ import org.eclipse.swt.widgets.Text;
 
 public class StudentDialog extends Dialog {
 	
-	private String title;
+	private String dialogTitle;
 	
 	private Text id;
 	
@@ -32,13 +30,13 @@ public class StudentDialog extends Dialog {
 		
 	protected StudentDialog(Shell parentShell, String title) {
 		super(parentShell);
-		this.title = title;
+		this.dialogTitle = title;
 	}
 
     protected void configureShell(Shell shell) {
         super.configureShell(shell);
-        if (title != null) {
-			shell.setText(title);
+        if (dialogTitle != null) {
+			shell.setText(dialogTitle);
 		}
     }
     
@@ -52,15 +50,15 @@ public class StudentDialog extends Dialog {
 		labTips.setText("\tPlease fill in the student's information.");
 		labTips.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 4, 1));
 		
+		//id
 		Label labId = new Label(parent, SWT.NONE);
 		labId.setText("ID");
-		labId.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
-		
+		labId.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));		
 		
 		id = new Text(parent, SWT.SINGLE|SWT.BORDER);
 		id.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 		
-		
+		//age
 		Label labAge = new Label(parent, SWT.NONE);
 		labAge.setText("Age");
 		labAge.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
@@ -68,6 +66,7 @@ public class StudentDialog extends Dialog {
 		age = new Text(parent, SWT.SINGLE|SWT.BORDER);
 		age.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 		
+		//sex
 		Label labSex = new Label(parent, SWT.NONE);
 		labSex.setText("Sex");
 		labSex.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
@@ -83,6 +82,7 @@ public class StudentDialog extends Dialog {
 		
 		composite.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
 		
+		//name
 		Label labFirstName = new Label(parent, SWT.NONE);
 		labFirstName.setText("First Name");
 		labFirstName.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
@@ -101,15 +101,6 @@ public class StudentDialog extends Dialog {
 		parent.setLayout(new GridLayout(4, false));
 		
 		return super.createDialogArea(parent);
-	}
-	
-	@Override
-	protected void setButtonLayoutData(Button button) {
-		GridData data = new GridData(SWT.FILL | SWT.RIGHT);
-		int widthHint = convertHorizontalDLUsToPixels(IDialogConstants.BUTTON_WIDTH);
-		Point minSize = button.computeSize(SWT.DEFAULT, SWT.DEFAULT, true);
-		data.widthHint = Math.max(widthHint, minSize.x);
-		button.setLayoutData(data);
 	}
 	
 	
